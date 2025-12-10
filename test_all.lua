@@ -2,14 +2,12 @@
 --[[
     GameLib 测试运行器
     
-    运行: lua lib/gamelib/test_all.lua
+    运行: lua test_all.lua
 ]]
 
 -- 设置路径
-local scriptPath = debug.getinfo(1, "S").source:match("@(.*/)")
-if scriptPath then
-    package.path = scriptPath .. "../../?.lua;" .. package.path
-end
+local scriptPath = debug.getinfo(1, "S").source:match("@(.*/)") or "./"
+package.path = scriptPath .. "?.lua;" .. scriptPath .. "tests/?.lua;" .. package.path
 
 print("========================================")
 print("GameLib Test Suite")
@@ -19,13 +17,13 @@ local totalPassed = 0
 local totalFailed = 0
 
 local tests = {
-    "tests/test_resource",
-    "tests/test_state_sprite",
-    "tests/test_proc_shape",
-    "tests/test_interact_region",
-    "tests/test_dialogue",
-    "tests/test_weighted_event",
-    "tests/test_ecs",
+    "test_resource",
+    "test_state_sprite",
+    "test_proc_shape",
+    "test_interact_region",
+    "test_dialogue",
+    "test_weighted_event",
+    "test_ecs",
 }
 
 for _, testPath in ipairs(tests) do

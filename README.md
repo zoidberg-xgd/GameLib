@@ -11,21 +11,35 @@
 
 ## 安装
 
-将 `gamelib` 文件夹复制到项目中：
+**方式 1**: 直接复制
 
+```bash
+git clone https://github.com/zoidberg-xgd/GameLib.git lib/gamelib
+```
+
+**方式 2**: Git Submodule
+
+```bash
+git submodule add https://github.com/zoidberg-xgd/GameLib.git lib/gamelib
+```
+
+项目结构：
 ```
 your_project/
 ├── lib/
 │   └── gamelib/
 │       ├── init.lua
 │       ├── resource.lua
-│       ├── state_sprite.lua
-│       ├── proc_shape.lua
-│       ├── interact_region.lua
-│       ├── dialogue.lua
-│       ├── weighted_event.lua
-│       └── ecs.lua
+│       ├── ...
+│       └── tests/
 └── main.lua
+```
+
+## 运行测试
+
+```bash
+cd lib/gamelib
+lua test_all.lua
 ```
 
 ## 快速开始
